@@ -1,6 +1,6 @@
 [
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "9",
 		"Gender": "Female",
 		"Text": "Using a computer for the first time to write a paper",
@@ -13,7 +13,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "6",
 		"Gender": "Female",
 		"Text": "1st grade - computer in classroom but teacher didn't know how to use it",
@@ -26,7 +26,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "12",
 		"Gender": "Female",
 		"Text": "Designed my junior high website",
@@ -39,7 +39,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "6",
 		"Gender": "Female",
 		"Text": "My grandmother bought me my first kiddie computer. Similar to leapfrog but a little more old school.",
@@ -52,7 +52,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "7",
 		"Gender": "female",
 		"Text": "Taking apart a wind-up toy, looking at all the inside parts, and putting it back together. I was fascinated.",
@@ -65,7 +65,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "9",
 		"Gender": "female",
 		"Text": "Built my first website at age 9",
@@ -78,7 +78,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "11",
 		"Gender": "female",
 		"Text": "I learned how to use a computer writing stories in the computer lab in 5th grade. I like to write so I lied how much easier the computer made the process.",
@@ -91,7 +91,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "8",
 		"Gender": "female",
 		"Text": "My dad teaching me DOS commands",
@@ -104,7 +104,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "12",
 		"Gender": "female",
 		"Text": "In the 7th grade, I won a contest for a website I made on Ancient Egypt",
@@ -117,7 +117,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "11",
 		"Gender": "Female",
 		"Text": "T1 had a fire sale on their PCs for $99. It was the first time my dad could afford to buy me a computer and I loved it!",
@@ -130,7 +130,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "35",
 		"Gender": "Female",
 		"Text": "Rebuilt a website",
@@ -143,7 +143,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "35",
 		"Gender": "Female",
 		"Text": "Reading and editing Java Code - I have an LD and identifying missing letters was difficult and frustrating",
@@ -156,7 +156,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "31",
 		"Gender": "Female",
 		"Text": "Last October, working on and finishing an 80 page report. Libre Office quit and I lost the file. A nice techie recovered most of it later...",
@@ -169,7 +169,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "33",
 		"Gender": "Female",
 		"Text": "Tried out a digital capture product to save some home videos and edit. It was painstakingly long and lousy to edit. Never used it again.",
@@ -182,7 +182,7 @@
 		"Year": "2000"
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "33",
 		"Gender": "Female",
 		"Text": "Attending a hardware conference in Las Vegas where I was one of the only women present. I was talked down to, minimized, and disrespected repeatedly by the men I was trying to network with. ",
@@ -195,7 +195,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "32",
 		"Gender": "Female",
 		"Text": "When I worked in CS dept, I told people that I wanted to go into education for a PhD. One CS faculty told me: \"\"that is a waste of time, do you want to wait tables?\"\" He had two little daughters himself, how sad.",
@@ -208,7 +208,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "31",
 		"Gender": "Female",
 		"Text": "Under-appreciated, over-worked, accused of sexism for wanting more women engineers",
@@ -221,7 +221,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "29",
 		"Gender": "Female",
 		"Text": "Had idea to build a software product. I hired a developer and he built it for me. Seeing the idea come to life and using it was one of the best experiences I've ever had.",
@@ -234,7 +234,7 @@
 		"Year": "2009"
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "29",
 		"Gender": "Female",
 		"Text": "I was learning how to code and couldn't figure out how to solve an issue I was having. Almost threw my laptop out the window.",
@@ -247,7 +247,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "31",
 		"Gender": "Female",
 		"Text": "When technology is unavailable i.e. battery dies and I want/need to do something",
@@ -260,7 +260,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "28",
 		"Gender": "Female",
 		"Text": "BF got a computer virus on my machine! *learned a lot from it.",
@@ -273,7 +273,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "30",
 		"Gender": "Female",
 		"Text": "Frustration experienced when using a badly written/designed technology solution. During work, no ability to change product used.",
@@ -286,7 +286,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "30",
 		"Gender": "Female",
 		"Text": "Attempting to design a user experience for a site.",
@@ -299,7 +299,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "27",
 		"Gender": "Female",
 		"Text": "Learning html and editing my organization's website.",
@@ -312,7 +312,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "27",
 		"Gender": "Female",
 		"Text": "Makes things more complicated. Slave to technology, constant interruptions, no waking time without being dependent on it.",
@@ -325,7 +325,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "31",
 		"Gender": "Female",
 		"Text": "I architected an application/module that allowed my company to go after and win $30 million worth of business. I was promoted to VP of it the same year.",
@@ -338,7 +338,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "30",
 		"Gender": "Female",
 		"Text": "\"\"I don't think programming is for you. Maybe hardware...\"\"",
@@ -351,7 +351,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "27",
 		"Gender": "Female",
 		"Text": "Joining new volunteer project and feeling like a valued member of the team (django-based membership management system)",
@@ -364,7 +364,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "28",
 		"Gender": "Female",
 		"Text": "My PC at work sucks. We run Windows from the early 2000's; it's slow and frequently crashes, it can't handle flash or java.",
@@ -377,7 +377,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "28",
 		"Gender": "Female",
 		"Text": "Advanced exploit training --> least experienced in group of all men; stuck out and felt overwhelmed",
@@ -390,7 +390,7 @@
 		"Year": ""
 	},
 	{
-		"": "Negative",
+		"Polarity": "Negative",
 		"Age": "25",
 		"Gender": "Female",
 		"Text": "Could not get a Rails app running on Postgres when on a tight client deadline.",
@@ -403,7 +403,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "25",
 		"Gender": "Female",
 		"Text": "While driving to NJ on my first day of work, my GPS broke down. Google maps came in handy, saved me from getting lost and I reached office on time.",
@@ -416,7 +416,7 @@
 		"Year": ""
 	},
 	{
-		"": "Positive",
+		"Polarity": "Positive",
 		"Age": "25",
 		"Gender": "Female",
 		"Text": "",
