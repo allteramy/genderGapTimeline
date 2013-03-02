@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="csstransforms csstransforms3d csstransitions">
+<head>
+	<title>Hacking the Gender Gap Timeline</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="http://isotope.metafizzy.co/jquery.isotope.min.js"></script>
+	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="data.js"></script>
+</head>
+<body>
+	<h1>Hacking the Gender Gap Timeline</h1>
+	<ul id="sort-by">
+	  <li><a href="#year">Order by Year</a></li>
+	  <li><a href="#age">Order by Age</a></li>
+	</ul>
+	<div class="column"><h1>Positive Experiences</h1><div id="c1" class="container isotope"></div></div>
+	<div class="column"><h1>Negative Experiences</h1><div id="c2" class="container isotope"></div></div>
+	</section>
+	<script>
+      	var $c1 = $('#c1');
+      	var $c2 = $('#c2');
+      
+      	$c1.isotope({
+	        itemSelector: '.timepoint',
+	        layoutMode: 'straightDown',
+	        filter: '*'
+	    });
+
+      	$c2.isotope({
+	        itemSelector: '.timepoint',
+	        layoutMode: 'straightDown',
+	        filter: '*'
+	    });
+
+      	$c1.isotope({
+			getSortData : {
+			year : function ( $elem ) {
+			  return parseInt($elem.find('.year').text());
+			},
+			age : function ( $elem ) {
+			  return parseInt($elem.find('.age').text());
+			}
+			}
+		});
+
+		$c2.isotope({
+			getSortData : {
+			year : function ( $elem ) {
+			  return parseInt($elem.find('.year').text());
+			},
+			age : function ( $elem ) {
+			  return parseInt($elem.find('.age').text());
+			}
+			}
+		});
+
+		$('#sort-by a').click(function(){
+			// get href attribute, minus the '#'
+			var sortName = $(this).attr('href').slice(1);
+			$c1.isotope({ sortBy : sortName });
+			$c2.isotope({ sortBy : sortName });
+			return false;
+		});
+
+	for (i = 0; i < data.length; i++) {
+		pol = data[i].Polarity;
+		age = data[i].Age;
+		gender = data[i].Gender;
+		txt = data[i].TimelineText;
+		tag = data[i].Tag;
+		evnt = data[i].Event;
+		rawYr = data[i].StartDate;
+		rawYr2 = rawYr.replace('1/1/', '');
+		yr = rawYr2.replace(' 0:00:00', '');
+		var newPosItems;
+		var newNegItems;
+		if (pol === "positive") {
+			newPosItems = newPosItems + '<div class="timepoint positive"><h3 class="year">' + yr + '</h3><p class="age">' + age + '</p><p>' + txt + '</p></div>';
+		}
+		else {
+			newNegItems = newNegItems + '<div class="timepoint negative"><h3 class="year">' + yr + '</h3><p class="age">' + age + '</p><p>' + txt + '</p></div>';
+		}
+	};
+	$('#c1').isotope( 'insert', $(newPosItems) );
+	$('#c2').isotope( 'insert', $(newNegItems) );
+ 	</script>
+</body>
+</html>
