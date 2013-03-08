@@ -71,7 +71,7 @@ data = [
 		"Age":"10",
 		"TimelineText": "Powertool projects with my stepdad. Belt sander is much faster than by hand :)",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559407244/",
-		"Tag": "power tools, family",
+		"Tag": "power_tools, family",
 		"Polarity": "positive",
 		"Event": "AdaCamp DC",
 		"Gender": "F"
@@ -1037,7 +1037,7 @@ data = [
 		"StartDate": "",
 		"EndDate": "",
 		"Age":"10",
-		"TimelineText": "Learning to use power tools with father and building carpentry projects.",
+		"TimelineText": "Learning to use power_tools with father and building carpentry projects.",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587651740",
 		"Tag": "",
 		"Polarity": "positive",
