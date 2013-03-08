@@ -15,6 +15,15 @@
 	  <li><a href="#year">Order by Year</a></li>
 	  <li><a href="#age">Order by Age</a></li>
 	</ul>
+	<ul id="filters">
+		<li><a href="#" data-filter="*">Show All</a></li>
+		<li><a href="#" data-filter=".computer">Computers</a></li>
+		<li><a href="#" data-filter=".family">Family</a></li>
+		<li><a href="#" data-filter=".power_tools">Power Tools</a></li>
+		<li><a href="#" data-filter=".programs">Programs</a></li>
+		<li><a href="#" data-filter=".CAD">CAD</a></li>
+		<li><a href="#" data-filter=".website">Website</a></li>
+	</ul>
 	<div class="column"><h1>Positive Experiences</h1><div id="c1" class="container isotope"></div></div>
 	<div class="column"><h1>Negative Experiences</h1><div id="c2" class="container isotope"></div></div>
 	</section>
@@ -34,6 +43,7 @@
 	        filter: '*'
 	    });
 
+      	// setting up sorting...
       	$c1.isotope({
 			getSortData : {
 			year : function ( $elem ) {
@@ -64,12 +74,19 @@
 			return false;
 		});
 
+		$('#filters a').click(function() {
+			var selector = $(this).attr('data-filter');
+			$c1.isotope({filter: selector});
+			$c2.isotope({filter: selector});
+			return false;
+		});
+
 	for (i = 0; i < data.length; i++) {
 		pol = data[i].Polarity;
 		age = data[i].Age;
 		gender = data[i].Gender;
 		txt = data[i].TimelineText;
-		tag = data[i].Tag;
+		tag = data[i].Tag.replace(',', '');
 		evnt = data[i].Event;
 		rawYr = data[i].StartDate;
 		rawYr2 = rawYr.replace('1/1/', '');
@@ -77,10 +94,10 @@
 		var newPosItems;
 		var newNegItems;
 		if (pol === "positive") {
-			newPosItems = newPosItems + '<div class="timepoint positive"><h3 class="year">' + yr + '</h3><p class="age">' + age + '</p><p>' + txt + '</p></div>';
+			newPosItems = newPosItems + '<div class="timepoint positive ' + tag + '"><h3 class="year">' + yr + '</h3><p class="age">' + age + '</p><p>' + txt + '</p></div>';
 		}
 		else {
-			newNegItems = newNegItems + '<div class="timepoint negative"><h3 class="year">' + yr + '</h3><p class="age">' + age + '</p><p>' + txt + '</p></div>';
+			newNegItems = newNegItems + '<div class="timepoint negative ' + tag + '"><h3 class="year">' + yr + '</h3><p class="age">' + age + '</p><p>' + txt + '</p></div>';
 		}
 	};
 	$('#c1').isotope( 'insert', $(newPosItems) );
