@@ -6,27 +6,51 @@
 	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
 	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
 	<script src="jquery.isotope.js"></script>
+	<link rel="stylesheet" href="bootstrap.css">
 	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="bootstrap.js"></script>
 	<script type="text/javascript" src="data.js"></script>
 </head>
 <body>
-	<h1>Hacking the Gender Gap Timeline</h1>
-	<ul id="sort-by">
-	  <li><a href="#year">Order by Year</a></li>
-	  <li><a href="#age">Order by Age</a></li>
-	</ul>
-	<ul id="filters">
-		<li><a href="#" data-filter="*">Show All</a></li>
-		<li><a href="#" data-filter=".computer">Computers</a></li>
-		<li><a href="#" data-filter=".family">Family</a></li>
-		<li><a href="#" data-filter=".power_tools">Power Tools</a></li>
-		<li><a href="#" data-filter=".programs">Programs</a></li>
-		<li><a href="#" data-filter=".CAD">CAD</a></li>
-		<li><a href="#" data-filter=".website">Website</a></li>
-	</ul>
-	<div class="column"><h1>Positive Experiences</h1><div id="c1" class="container isotope"></div></div>
-	<div class="column"><h1>Negative Experiences</h1><div id="c2" class="container isotope"></div></div>
-	</section>
+	<div class="container">
+		<div class="navbar navbar-fixed-top">
+    		<div class="navbar-inner">
+    			<a class="brand" href="#">The Hacktory</a>
+    		</div>
+    	</div>
+	</div>
+	<div class="container">
+		<div class="jumbotron hero-unit">
+			<h1>Hacking the Gender Gap: Timeline</h1>
+		</div>
+	<div class="row">
+	<div class="span9">
+		<div id="sort-by" class="btn-group pull-right">
+	    	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Sort <span class="caret"></span></a>
+	    	<ul class="dropdown-menu">
+				<li><a href="#year">Order by Year</a></li>
+				<li><a href="#age">Order by Age</a></li>
+	    	</ul>
+	    </div>
+	    <div id="filters" class="btn-group pull-right">
+	    	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Filter <span class="caret"></span></a>
+	    	<ul class="dropdown-menu">
+				<li><a href="#" data-filter="*">Show All</a></li>
+				<li><a href="#" data-filter=".computer">Computers</a></li>
+				<li><a href="#" data-filter=".family">Family</a></li>
+				<li><a href="#" data-filter=".power_tools">Power Tools</a></li>
+				<li><a href="#" data-filter=".programs">Programs</a></li>
+				<li><a href="#" data-filter=".CAD">CAD</a></li>
+				<li><a href="#" data-filter=".website">Website</a></li>
+	    	</ul>
+	    </div>
+	    <div class="row">    	
+			<div class="column span4"><h1>Positive Experiences</h1><div id="c1" class="container isotope"></div></div>
+			<div class="column span4"><h1>Negative Experiences</h1><div id="c2" class="container isotope"></div></div>
+	    </div>
+ 	</div>
+ 	</div>
+ 	</div>
 	<script>
       	var $c1 = $('#c1');
       	var $c2 = $('#c2');
