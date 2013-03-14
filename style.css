@@ -46,7 +46,7 @@
   -webkit-transition-duration: 0s;
      -moz-transition-duration: 0s;
       -ms-transition-duration: 0s;
-       -o-transition-duration: 0s;
+       -o-transitionw-duration: 0s;
           transition-duration: 0s;
 }
 
@@ -57,4 +57,20 @@
 /* Navbar logo left margin (JEB) */
 .navbar .brand {
   margin-left: 10px;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+#pos_ex h1 {
+  color: #468847;
+}
+
+#neg_ex h1 {
+  color: #b94a48;
+}
+
+.experiences h1 {
+  text-align: center;
 }
