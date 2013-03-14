@@ -63,6 +63,10 @@
   text-align: center;
 }
 
+.row-fluid {
+  margin: 10px 0px;
+}
+
 #pos_ex h1 {
   color: #468847;
 }
