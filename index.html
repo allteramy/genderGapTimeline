@@ -9,20 +9,17 @@
 	<!-- My files -->
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="toggle.js"></script>
 	<! -- end My Files -->
 
 	<!-- jQuery -->
 	<!-- jQuery for offline use -->
 	<!--<script type="text/javascript" src="jquery-1.7.1.min.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	
+
 	<!-- Isotope -->
-	<!-- Isotope for offline use -->
-	<!--<script src="jquery.isotope.js"></script>-->
 	<script src="http://isotope.metafizzy.co/jquery.isotope.min.js"></script>
 
-	<!-- Bootstrap JavaScript -->
-	<script type="text/javascript" src="bootstrap.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -39,32 +36,31 @@
 		</div>
 	<div class="row-fluid">
 	<div class="span12">
-		<!-- TODO: data-toggle="buttons-radio" here not working due to JavaScript conflict between Isotope and Bootstrap? -->
-	    <div id="sort-by" class="btn-group pull-right" data-toggle="buttons-radio">
-		  <button class="btn"><a href="#year">Order by Year</a></button>
-		  <button class="btn"><a href="#age">Order by Age</a></button>
+		<div id="sort-by" class="btn-group pull-right">
+		  <a href="#year" class="btn">Order by Year</a>
+		  <a href="#age" class="btn">Order by Age</a>
 		</div>
 	</div>
 	</div>
 	<div class="row-fluid">
 	<div class="span12">
-		<!-- TODO: data-toggle="buttons-radio" here not working due to JavaScript conflict between Isotope and Bootstrap? -->
-	    <div id="filters" class="btn-group pull-right" data-toggle="buttons-radio">
-		  <button class="btn"><a href="#" data-filter="*">Show All</a></button>
-		  <button class="btn"><a href="#" data-filter=".computer">Computers</a></button>
-		  <button class="btn"><a href="#" data-filter=".family">Family</a></button>
-		  <button class="btn"><a href="#" data-filter=".power_tools">Power Tools</a></button>
-		  <button class="btn"><a href="#" data-filter=".programs">Programs</a></button>
-		  <button class="btn"><a href="#" data-filter=".CAD">CAD</a></button>
-		  <button class="btn"><a href="#" data-filter=".website">Website</a></button>
+	    <div id="filters" class="btn-group pull-right">
+		  <button class="btn" href="#" data-filter="*">Show All</button>
+		  <button class="btn" href="#" data-filter=".computer">Computers</button>
+		  <button class="btn" href="#" data-filter=".power_tools">Power Tools</button>
+		  <button class="btn" href="#" data-filter=".programs">Programs</button>
+		  <button class="btn" href="#" data-filter=".CAD">CAD</button>
+		  <button class="btn" href="#" data-filter=".website">Website</button>
 		</div>
 	</div>
 	</div>
+	<div class="row-fluid">
 	<div class="span12">
 	    <div class="row-fluid">    	
-			<div id ="pos_ex" class="experiences column span6"><h1>Positive Experiences</h1><div id="c1" class="row-fluid container isotope"></div></div>
-			<div id ="neg_ex" class="experiences column span6"><h1>Negative Experiences</h1><div id="c2" class="row-fluid container isotope"></div></div>
+			<div id ="pos_ex" class="experiences column span6"><h1 class="well well-small">Positive Experiences</h1><div class="row-fluid"><div id="c1" class="container isotope span12"></div></div></div>
+			<div id ="neg_ex" class="experiences column span6"><h1 class="well well-small">Negative Experiences</h1><div class="row-fluid"><div id="c2" class="container isotope span12"></div></div></div>
 	    </div>
+ 	</div>
  	</div>
  	</div>
  	</div>
@@ -115,7 +111,7 @@
 			return false;
 		});
 
-		$('#filters a').click(function() {
+		$('#filters button').click(function() {
 			var selector = $(this).attr('data-filter');
 			$c1.isotope({filter: selector});
 			$c2.isotope({filter: selector});
@@ -129,20 +125,27 @@
 		txt = data[i].TimelineText;
 		tag = data[i].Tag.replace(',', '');
 		evnt = data[i].Event;
+		media = data[i].Media;
 		rawYr = data[i].StartDate;
 		rawYr2 = rawYr.replace('1/1/', '');
 		yr = rawYr2.replace(' 0:00:00', '');
 		var newPosItems;
 		var newNegItems;
 		if (pol === "positive") {
-			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + '"><h3 class="year">' + yr + '</h3><p>Age <span class="age">' + age + '</span></p><p>' + txt + '</p></div></div>';
+			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span6 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
 		}
 		else {
-			newNegItems = newNegItems + '<div class="row-fluid"><div class=" alert alert-error span12 timepoint negative ' + tag + '"><h3 class="year">' + yr + '</h3><p>Age <span class="age">' + age + '</span></p><p>' + txt + '</p></div></div>';
+			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span6 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
 		}
 	};
 	$('#c1').isotope( 'insert', $(newPosItems) );
 	$('#c2').isotope( 'insert', $(newNegItems) );
+
+	$('.btn').each(function() {
+		$(this).bind('click', function() {
+			toggle($(this), $(this).parent());
+		});
+	});
  	</script>
 </body>
 </html>
