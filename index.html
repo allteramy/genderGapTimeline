@@ -44,21 +44,14 @@
 	</div>
 	<div class="row-fluid">
 	<div class="span12">
-	    <div id="filters" class="btn-group pull-right">
-		  <button class="btn active" href="#" data-filter="*">Show All</button>
-		  <button class="btn" href="#" data-filter=".computer">Computers</button>
-		  <button class="btn" href="#" data-filter=".power_tools">Power Tools</button>
-		  <button class="btn" href="#" data-filter=".programs">Programs</button>
-		  <button class="btn" href="#" data-filter=".CAD">CAD</button>
-		  <button class="btn" href="#" data-filter=".website">Website</button>
-		</div>
-	</div>
-	</div>
-	<div class="row-fluid">
-	<div class="span12">
-	    <div class="row-fluid">    	
-			<div id ="pos_ex" class="experiences column span6"><h1 class="well well-small">Positive Experiences</h1><div class="row-fluid"><div id="c1" class="container isotope span12"></div></div></div>
-			<div id ="neg_ex" class="experiences column span6"><h1 class="well well-small">Negative Experiences</h1><div class="row-fluid"><div id="c2" class="container isotope span12"></div></div></div>
+	    <div class="row-fluid">
+			<div class="span2">
+			    <div id="filters" class="btn-group btn-group-vertical pull-left">
+				  <button class="btn active" href="#" data-filter="*">Show all tags</button>
+				</div>
+			</div>
+			<div id ="pos_ex" class="experiences column span5"><h1 class="well well-small">Positive Experiences</h1><div class="row-fluid"><div id="c1" class="container isotope span12"></div></div></div>
+			<div id ="neg_ex" class="experiences column span5"><h1 class="well well-small">Negative Experiences</h1><div class="row-fluid"><div id="c2" class="container isotope span12"></div></div></div>
 	    </div>
  	</div>
  	</div>
@@ -111,33 +104,52 @@
 			return false;
 		});
 
-		$('#filters button').click(function() {
-			var selector = $(this).attr('data-filter');
-			$c1.isotope({filter: selector});
-			$c2.isotope({filter: selector});
-			return false;
-		});
+	var tags = {};
 
 	for (i = 0; i < data.length; i++) {
 		pol = data[i].Polarity;
 		age = data[i].Age;
+		if (age == "") {
+			age = "unknown";
+		}
 		gender = data[i].Gender;
 		txt = data[i].TimelineText;
-		tag = data[i].Tag.replace(',', '');
+		tag = data[i].Tag.replace(/,/g, '');
+		tmpTags = tag.split(' ');
+		for(j = 0; j < tmpTags.length; j++) {
+			if (!(tmpTags[j] in tags)) {
+				if(tmpTags[j] != "") {
+					tags[tmpTags[j]] = true;	
+				}
+			}
+		};
 		evnt = data[i].Event;
 		media = data[i].Media;
-		rawYr = data[i].StartDate;
+		rawYr = data[i].EventDate;
 		rawYr2 = rawYr.replace('1/1/', '');
 		yr = rawYr2.replace(' 0:00:00', '');
 		var newPosItems;
 		var newNegItems;
 		if (pol === "positive") {
-			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span6 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
+			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
 		}
 		else {
-			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span6 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
+			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
 		}
 	};
+
+	// setting up filters
+	for (i in tags) {
+		$('#filters').append("<button class='btn btn-small' href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
+	};
+
+	$('#filters button').click(function() {
+		var selector = $(this).attr('data-filter');
+		$c1.isotope({filter: selector});
+		$c2.isotope({filter: selector});
+		return false;
+	});
+
 	$('#c1').isotope( 'insert', $(newPosItems) );
 	$('#c2').isotope( 'insert', $(newNegItems) );
 
