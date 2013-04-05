@@ -3,5 +3,21 @@
 var toggle = function($btn, $group) {
 	var parID = $group.attr('id');
 	$('#' + parID + ' .btn').removeClass('active');
-	$btn.addClass('active');
+	if (parID !== "filters") {
+		$btn.addClass('active');	
+	}
+	else {
+		$('#filters button').each(function() {
+			var button = $(this).attr('data-filter');
+			if (button === "*") {
+				button = "empty_string";
+			}
+			if (selectedTags.search(button) !== -1) {
+				$(this).addClass('active');
+			}
+			if (selectedTags === "") {
+				$('#show_all').addClass('active');
+			}
+		});
+	}
 };
