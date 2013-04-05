@@ -942,7 +942,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "10",
-		"TimelineText": "Learning to use power_tools with father and building carpentry projects.",
+		"TimelineText": "Learning to use power tools with father and building carpentry projects.",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587651740",
 		"Tag": "power_tools, family",
 		"Polarity": "positive",
