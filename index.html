@@ -17,10 +17,9 @@
 	<!--<script type="text/javascript" src="jquery-1.7.1.min.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-	<!-- Isotope -->
 	<!-- Isotope for offline use -->
-	<!--<script src="jquery.isotope.js"></script>-->
-	<script src="http://isotope.metafizzy.co/jquery.isotope.min.js"></script>
+    <!--<script src="jquery.isotope.js"></script>-->
+    <script src="http://isotope.metafizzy.co/jquery.isotope.min.js"></script>
 
 </head>
 <body>
@@ -49,7 +48,7 @@
 	    <div class="row-fluid">
 			<div class="span2">
 			    <div id="filters" class="btn-group btn-group-vertical pull-left">
-				  <button class="btn active" href="#" data-filter="*">Show all tags</button>
+				  <button id="show_all" class="btn active" href="#" data-filter="*">Show all tags</button>
 				</div>
 			</div>
 			<div id ="pos_ex" class="experiences column span5"><h1 class="well well-small">Positive Experiences</h1><div class="row-fluid"><div id="c1" class="container isotope span12"></div></div></div>
@@ -145,10 +144,29 @@
 		$('#filters').append("<button class='btn btn-small' href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
 	};
 
+	var selectedTags = "";
+
+	$('#show_all').bind('click', function () {
+		selectedTags = "";
+	});
+
 	$('#filters button').click(function() {
 		var selector = $(this).attr('data-filter');
-		$c1.isotope({filter: selector});
-		$c2.isotope({filter: selector});
+		if ((selectedTags !== "") && (selector !== "*")) {
+			if (selectedTags.search(selector) === -1) {
+				selectedTags += ", " + selector;
+			}
+			
+		}
+		else if (selector === "*") {
+			selectedTags = "";
+		}
+		else {
+			selectedTags = selector;
+		}
+		console.log(selectedTags);
+		$c1.isotope({filter: selectedTags});
+		$c2.isotope({filter: selectedTags});
 		return false;
 	});
 
