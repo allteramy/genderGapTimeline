@@ -1,80 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" class="csstransforms csstransforms3d csstransitions">
-<head>
-	<title>Hacking the Gender Gap Timeline</title>
+	<head>
+		<title>
+			Hacking the Gender Gap Timeline
+		</title><!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="bootstrap.css" type="text/css"><!-- My files -->
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<script type="text/javascript" src="data.js">
+</script>
+		<script type="text/javascript" src="toggle.js">
+</script><!-- jQuery -->
+		<!-- jQuery for offline use -->
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="bootstrap.css">
+		<script type="text/javascript" src="jquery-1.7.1.min.js">
+</script><!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+		<!-- Isotope -->
 
-	<!-- My files -->
-	<link rel="stylesheet" href="style.css" />
-	<script type="text/javascript" src="data.js"></script>
-	<script type="text/javascript" src="toggle.js"></script>
-	<! -- end My Files -->
-
-	<!-- jQuery -->
-	<!-- jQuery for offline use -->
-	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
-
-	<!-- Isotope -->
-	<script src="jquery.isotope.js"></script>
-
-</head>
-<body>
-	<div class="container">
-		<div class="navbar navbar-fixed-top">
-    		<div class="navbar-inner">
-    			<a class="brand" href="http://www.thehacktory.org/">The Hacktory</a>
-    		</div>
-    	</div>
-	</div>
-	<div class="container">
-		<div class="jumbotron hero-unit">
-			<h2>Hacking the Gender Gap</h2>
-			<h1>Timeline</h1>
-		</div>
-	<div class="row-fluid">
-	<div class="span12">
-		<div id="sort-by" class="btn-group pull-right">
-		  <a href="#year" class="btn">Order by Year</a>
-		  <a href="#age" class="btn">Order by Age</a>
-		</div>
-	</div>
-	</div>
-	<div class="row-fluid">
-	<div class="span12">
-	    <div class="row-fluid">
-			<div class="span2">
-			    <div id="filters" class="btn-group btn-group-vertical pull-left">
-				  <button id="show_all" class="btn active" href="#" data-filter="*">Show all tags</button>
+		<script src="jquery.isotope.js" type="text/javascript">
+</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar navbar-fixed-top">
+				<div class="navbar-inner">
+					<a class="brand" href="http://www.thehacktory.org/">The Hacktory</a>
 				</div>
 			</div>
-			<div id ="pos_ex" class="experiences column span5"><h1 class="well well-small">Positive Experiences</h1><div class="row-fluid"><div id="c1" class="container isotope span12"></div></div></div>
-			<div id ="neg_ex" class="experiences column span5"><h1 class="well well-small">Negative Experiences</h1><div class="row-fluid"><div id="c2" class="container isotope span12"></div></div></div>
-	    </div>
- 	</div>
- 	</div>
- 	</div>
- 	</div>
-	<script>
-      	var $c1 = $('#c1');
-      	var $c2 = $('#c2');
-      
-      	$c1.isotope({
-	        itemSelector: '.timepoint',
-	        layoutMode: 'straightDown',
-	        filter: '*'
-	    });
+		</div>
+		<div class="container">
+			<div class="jumbotron hero-unit">
+				<h2>
+					Hacking the Gender Gap
+				</h2>
+				<h1>
+					Timeline
+				</h1>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div id="sort-by" class="btn-group pull-right">
+						<a href="#year" class="btn">Order by Year</a> <a href="#age" class="btn">Order by Age</a>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div id="event_filters" class="btn-group pull-right"></div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="row-fluid">
+						<div class="span2">
+							<div id="filters" class="btn-group btn-group-vertical pull-left">
+								<button id="show_all" class="btn active" href="#" data-filter="*">Show all tags</button>
+							</div>
+						</div>
+						<div id="pos_ex" class="experiences column span5">
+							<h1 class="well well-small">
+								Positive Experiences
+							</h1>
+							<div class="row-fluid">
+								<div id="c1" class="container isotope span12"></div>
+							</div>
+						</div>
+						<div id="neg_ex" class="experiences column span5">
+							<h1 class="well well-small">
+								Negative Experiences
+							</h1>
+							<div class="row-fluid">
+								<div id="c2" class="container isotope span12"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><script type="text/javascript">
+var $c1 = $('#c1');
+		var $c2 = $('#c2');
 
-      	$c2.isotope({
-	        itemSelector: '.timepoint',
-	        layoutMode: 'straightDown',
-	        filter: '*'
-	    });
+		$c1.isotope({
+			itemSelector: '.timepoint',
+			layoutMode: 'straightDown',
+			filter: '*'
+		});
 
-      	// setting up sorting...
-      	$c1.isotope({
+		$c2.isotope({
+			itemSelector: '.timepoint',
+			layoutMode: 'straightDown',
+			filter: '*'
+		});
+
+		// setting up sorting...
+		$c1.isotope({
 			getSortData : {
 			year : function ( $elem ) {
 			  return parseInt($elem.find('.year').text());
@@ -104,9 +122,11 @@
 			return false;
 		});
 
-	var tags = {};
+		var tags = {};
 
-	for (i = 0; i < data.length; i++) {
+		var evnts = {};
+
+		for (i = 0; i < data.length; i++) {
 		pol = data[i].Polarity;
 		age = data[i].Age;
 		if (age == "") {
@@ -119,11 +139,14 @@
 		for(j = 0; j < tmpTags.length; j++) {
 			if (!(tmpTags[j] in tags)) {
 				if(tmpTags[j] != "") {
-					tags[tmpTags[j]] = true;	
+					tags[tmpTags[j]] = true;    
 				}
 			}
 		};
-		evnt = data[i].Event;
+		evnt = data[i].Event.replace(/ /g, '_');
+		if (!(evnt in evnts)) {
+			evnts[evnt] = true;
+		}
 		media = data[i].Media;
 		rawYr = data[i].EventDate;
 		rawYr2 = rawYr.replace('1/1/', '');
@@ -131,25 +154,34 @@
 		var newPosItems;
 		var newNegItems;
 		if (pol === "positive") {
-			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
+			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p><span class="label label-success">' + evnt.replace('_',' ') + '</span></div></div></div></div>';
 		}
 		else {
-			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
+			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p><span class="label label-important">' + evnt.replace('_',' ') + '</span></div></div></div></div>';
 		}
-	};
+		};
 
-	// setting up filters
-	for (i in tags) {
+		for(var key in evnts) {
+		console.log(key);
+		};
+
+		// setting up filters
+		for (i in tags) {
 		$('#filters').append("<button class='btn btn-small' href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
-	};
+		};
 
-	var selectedTags = "";
+		//setting up event filters
+		for (i in evnts) {
+		$('#event_filters').append("<button class='btn btn-small href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
+		};
 
-	$('#show_all').bind('click', function () {
+		var selectedTags = "";
+
+		$('#show_all').bind('click', function () {
 		selectedTags = "";
-	});
+		});
 
-	$('#filters button').click(function() {
+		$('#filters button').click(function() {
 		var selector = $(this).attr('data-filter');
 		if ((selectedTags !== "") && (selector !== "*")) {
 			if (selectedTags.search(selector) === -1) {
@@ -167,16 +199,23 @@
 		$c1.isotope({filter: selectedTags});
 		$c2.isotope({filter: selectedTags});
 		return false;
-	});
+		});
 
-	$('#c1').isotope( 'insert', $(newPosItems) );
-	$('#c2').isotope( 'insert', $(newNegItems) );
+		$('#event_filters button').click(function() {
+		var selector = $(this).attr('data-filter');
+		$c1.isotope({filter: selector});
+		$c2.isotope({filter: selector});
+		return false;
+		});
 
-	$('.btn').each(function() {
+		$('#c1').isotope( 'insert', $(newPosItems) );
+		$('#c2').isotope( 'insert', $(newNegItems) );
+
+		$('.btn').each(function() {
 		$(this).bind('click', function() {
 			toggle($(this), $(this).parent());
 		});
-	});
- 	</script>
-</body>
+		});
+		</script>
+	</body>
 </html>
