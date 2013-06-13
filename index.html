@@ -154,10 +154,10 @@ var $c1 = $('#c1');
 		var newPosItems;
 		var newNegItems;
 		if (pol === "positive") {
-			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p><span class="label label-success">' + evnt.replace('_',' ') + '</span></div></div></div></div>';
+			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + ' ' + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p><span class="label label-success">' + evnt.replace('_',' ') + '</span></div></div></div></div>';
 		}
 		else {
-			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p><span class="label label-important">' + evnt.replace('_',' ') + '</span></div></div></div></div>';
+			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + ' ' + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p><span class="label label-important">' + evnt.replace('_',' ') + '</span></div></div></div></div>';
 		}
 		};
 
