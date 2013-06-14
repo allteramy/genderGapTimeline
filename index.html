@@ -1,81 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" class="csstransforms csstransforms3d csstransitions">
-<head>
-	<title>Hacking the Gender Gap Timeline</title>
+	<head>
+		<title>
+			Hacking the Gender Gap Timeline
+		</title><!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="bootstrap.css" type="text/css"><!-- My files -->
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<script type="text/javascript" src="data.js">
+</script>
+		<script type="text/javascript" src="toggle.js">
+</script><!-- jQuery -->
+		<!-- jQuery for offline use -->
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="bootstrap.css">
+		<script type="text/javascript" src="jquery-1.7.1.min.js">
+</script><!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+		<!-- Isotope -->
 
-	<!-- My files -->
-	<link rel="stylesheet" href="style.css" />
-	<script type="text/javascript" src="data.js"></script>
-	<script type="text/javascript" src="toggle.js"></script>
-	<! -- end My Files -->
-
-	<!-- jQuery -->
-	<!-- jQuery for offline use -->
-	<!--<script type="text/javascript" src="jquery-1.7.1.min.js"></script>-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-	<!-- Isotope for offline use -->
-    <!--<script src="jquery.isotope.js"></script>-->
-    <script src="http://isotope.metafizzy.co/jquery.isotope.min.js"></script>
-
-</head>
-<body>
-	<div class="container">
-		<div class="navbar navbar-fixed-top">
-    		<div class="navbar-inner">
-    			<a class="brand" href="http://www.thehacktory.org/">The Hacktory</a>
-    		</div>
-    	</div>
-	</div>
-	<div class="container">
-		<div class="jumbotron hero-unit">
-			<h2>Hacking the Gender Gap</h2>
-			<h1>Timeline</h1>
-		</div>
-	<div class="row-fluid">
-	<div class="span12">
-		<div id="sort-by" class="btn-group pull-right">
-		  <a href="#year" class="btn">Order by Year</a>
-		  <a href="#age" class="btn">Order by Age</a>
-		</div>
-	</div>
-	</div>
-	<div class="row-fluid">
-	<div class="span12">
-	    <div class="row-fluid">
-			<div class="span2">
-			    <div id="filters" class="btn-group btn-group-vertical pull-left">
-				  <button id="show_all" class="btn active" href="#" data-filter="*">Show all tags</button>
+		<script src="jquery.isotope.js" type="text/javascript">
+</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar navbar-fixed-top">
+				<div class="navbar-inner">
+					<a class="brand" href="http://www.thehacktory.org/">The Hacktory</a>
 				</div>
 			</div>
-			<div id ="pos_ex" class="experiences column span5"><h1 class="well well-small">Positive Experiences</h1><div class="row-fluid"><div id="c1" class="container isotope span12"></div></div></div>
-			<div id ="neg_ex" class="experiences column span5"><h1 class="well well-small">Negative Experiences</h1><div class="row-fluid"><div id="c2" class="container isotope span12"></div></div></div>
-	    </div>
- 	</div>
- 	</div>
- 	</div>
- 	</div>
-	<script>
-      	var $c1 = $('#c1');
-      	var $c2 = $('#c2');
-      
-      	$c1.isotope({
-	        itemSelector: '.timepoint',
-	        layoutMode: 'straightDown',
-	        filter: '*'
-	    });
+		</div>
+		<div class="container">
+			<div class="jumbotron hero-unit">
+				<h2>
+					Hacking the Gender Gap
+				</h2>
+				<h1>
+					Timeline
+				</h1>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div id="sort-by" class="btn-group pull-right">
+						<a href="#year" class="btn">Order by Year</a> <a href="#age" class="btn">Order by Age</a>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div id="event_filters" class="btn-group pull-right">
+						<button class="btn btn-small active show-all" href="#" data-filter="*">Show all events</button>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="row-fluid">
+						<div class="span2">
+							<div id="tag_filters" class="btn-group btn-group-vertical pull-left">
+								<button class="btn active show-all" href="#" data-filter="*">Show all tags</button>
+							</div>
+						</div>
+						<div id="pos_ex" class="experiences column span5">
+							<h1 class="well well-small">
+								Positive Experiences
+							</h1>
+							<div class="row-fluid">
+								<div id="c1" class="container isotope span12"></div>
+							</div>
+						</div>
+						<div id="neg_ex" class="experiences column span5">
+							<h1 class="well well-small">
+								Negative Experiences
+							</h1>
+							<div class="row-fluid">
+								<div id="c2" class="container isotope span12"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><script type="text/javascript">
+		var $c1 = $('#c1');
+		var $c2 = $('#c2');
 
-      	$c2.isotope({
-	        itemSelector: '.timepoint',
-	        layoutMode: 'straightDown',
-	        filter: '*'
-	    });
+		// set up 'Positive Experiences' column
+		$c1.isotope({
+			itemSelector: '.timepoint',
+			layoutMode: 'straightDown',
+			filter: '*'
+		});
 
-      	// setting up sorting...
-      	$c1.isotope({
+		// set up 'Negative Experiences' column
+		$c2.isotope({
+			itemSelector: '.timepoint',
+			layoutMode: 'straightDown',
+			filter: '*'
+		});
+
+		// set up sorting for Pos Exp column...
+		$c1.isotope({
 			getSortData : {
 			year : function ( $elem ) {
 			  return parseInt($elem.find('.year').text());
@@ -86,6 +107,7 @@
 			}
 		});
 
+		// set up sorting for Neg Exp column...
 		$c2.isotope({
 			getSortData : {
 			year : function ( $elem ) {
@@ -97,17 +119,25 @@
 			}
 		});
 
+		// do sort
 		$('#sort-by a').click(function(){
 			// get href attribute, minus the '#'
 			var sortName = $(this).attr('href').slice(1);
 			$c1.isotope({ sortBy : sortName });
 			$c2.isotope({ sortBy : sortName });
+			if ($(this).attr('class').search('active') === -1) {
+				$('#sort-by a').removeClass('active');
+				$(this).addClass('active');
+			}
 			return false;
 		});
 
-	var tags = {};
+		// parse JSON data and add divs for each experience into DOM
+		var tags = {};
 
-	for (i = 0; i < data.length; i++) {
+		var evnts = {};
+
+		for (i = 0; i < data.length; i++) {
 		pol = data[i].Polarity;
 		age = data[i].Age;
 		if (age == "") {
@@ -120,11 +150,14 @@
 		for(j = 0; j < tmpTags.length; j++) {
 			if (!(tmpTags[j] in tags)) {
 				if(tmpTags[j] != "") {
-					tags[tmpTags[j]] = true;	
+					tags[tmpTags[j]] = true;    
 				}
 			}
 		};
-		evnt = data[i].Event;
+		evnt = data[i].Event.replace(/ /g, '_');
+		if (!(evnt in evnts)) {
+			evnts[evnt] = true;
+		}
 		media = data[i].Media;
 		rawYr = data[i].EventDate;
 		rawYr2 = rawYr.replace('1/1/', '');
@@ -132,52 +165,116 @@
 		var newPosItems;
 		var newNegItems;
 		if (pol === "positive") {
-			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
+			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + ' ' + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '<\/span><\/h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '<\/span><\/h4><\/div><div class="row-fluid"><p class="span12 well well-small">' + txt + '<\/p><span class="label label-success">' + evnt.replace('_',' ') + '<\/span><\/div><\/div><\/div><\/div>';
 		}
 		else {
-			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + '"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '</span></h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '</span></h4></div><div class="row-fluid"><p class="span12 well well-small">' + txt + '</p></div></div></div></div>';
+			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + ' ' + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '<\/span><\/h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '<\/span><\/h4><\/div><div class="row-fluid"><p class="span12 well well-small">' + txt + '<\/p><span class="label label-important">' + evnt.replace('_',' ') + '<\/span><\/div><\/div><\/div><\/div>';
 		}
-	};
+		};
 
-	// setting up filters
-	for (i in tags) {
-		$('#filters').append("<button class='btn btn-small' href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
-	};
+		// setting up filters
+		for (i in tags) {
+		$('#tag_filters').append("<button class='btn btn-small' href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "<\/button>");
+		};
 
-	var selectedTags = "";
+		//setting up event filters
+		for (i in evnts) {
+		$('#event_filters').append("<button class='btn btn-small href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "<\/button>");
+		};
 
-	$('#show_all').bind('click', function () {
-		selectedTags = "";
-	});
+		// handle multiple tag selections
+		var selectedTags = "";
 
-	$('#filters button').click(function() {
+		$('#tag_filters button').click(function() {
 		var selector = $(this).attr('data-filter');
 		if ((selectedTags !== "") && (selector !== "*")) {
 			if (selectedTags.search(selector) === -1) {
 				selectedTags += ", " + selector;
 			}
-			
+			else if (selectedTags.search(selector + ', ') !== -1) {
+				selectedTags = selectedTags.replace(selector + ', ', '');
+			}
+			else if (selectedTags.search(', ' + selector) !== -1) {
+				selectedTags = selectedTags.replace(', ' + selector, '');
+			}
+			else if (selectedTags.search(selector) !== -1) {
+				selectedTags = selectedTags.replace(selector, '');
+			}
 		}
 		else if (selector === "*") {
 			selectedTags = "";
+			$('#tag_filters button').removeClass('active');
+			$('#tag_filters .show-all').addClass('active');
 		}
 		else {
 			selectedTags = selector;
 		}
-		console.log(selectedTags);
-		$c1.isotope({filter: selectedTags});
-		$c2.isotope({filter: selectedTags});
+		// make 'Show all...' button active when all tags toggled off
+		if (selectedTags === "") {
+			$('#tag_filters button').removeClass('active');
+			$('#tag_filters .show-all').addClass('active');
+		}
+		else if (($(this).attr('class').search('active') !== -1) && (selector !== "*")) {
+			$(this).removeClass('active');
+		}
+		else {
+			$(this).addClass('active');
+			if (selectedTags !== "") {
+				$('#tag_filters .show-all').removeClass('active');
+			}
+		}
+		$c1.isotope({filter: selectedTags + selectedEvents});
+		$c2.isotope({filter: selectedTags + selectedEvents});
 		return false;
-	});
-
-	$('#c1').isotope( 'insert', $(newPosItems) );
-	$('#c2').isotope( 'insert', $(newNegItems) );
-
-	$('.btn').each(function() {
-		$(this).bind('click', function() {
-			toggle($(this), $(this).parent());
 		});
-	});
- 	</script>
-</body>
+
+		// handle multiple event selections
+		var selectedEvents = "";
+
+		$('#event_filters button').click(function() {
+		var selector = $(this).attr('data-filter');
+		if ((selectedEvents != "") && (selector !== "*")) {
+			if (selectedEvents.search(selector) === -1) {
+				selectedEvents += ", " + selector;
+			}
+			else if (selectedEvents.search(selector + ', ') !== -1) {
+				selectedEvents = selectedEvents.replace(selector + ', ', '');
+			}
+			else if (selectedEvents.search(', ' + selector) !== -1) {
+				selectedEvents = selectedEvents.replace(', ' + selector, '');
+			}
+			else if (selectedEvents.search(selector) !== -1) {
+				selectedEvents = selectedEvents.replace(selector, '');
+			}
+		}
+		else if (selector === "*") {
+			selectedEvents = "";
+			$('#event_filters button').removeClass('active');
+			$('#event_filters .show-all').addClass('active');
+		}
+		else {
+			selectedEvents = selector;
+		}
+		// make 'Show all...' button active when all events toggled off
+		if (selectedEvents === "") {
+			$('#event_filters button').removeClass('active');
+			$('#event_filters .show-all').addClass('active');
+		}
+		else if (($(this).attr('class').search('active') !== -1) && (selector !== "*")) {
+			$(this).removeClass('active');
+		}
+		else {
+			$(this).addClass('active');
+			if (selectedEvents !== "") {
+				$('#event_filters .show-all').removeClass('active');
+			}
+		}
+		$c1.isotope({filter: selectedTags + selectedEvents});
+		$c2.isotope({filter: selectedTags + selectedEvents});
+		});
+
+		$('#c1').isotope( 'insert', $(newPosItems) );
+		$('#c2').isotope( 'insert', $(newNegItems) );
+		</script>
+	</body>
 </html>
