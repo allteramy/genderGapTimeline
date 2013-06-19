@@ -270,10 +270,12 @@
 		}
 		$c1.isotope({filter: selectedTags + selectedEvents});
 		$c2.isotope({filter: selectedTags + selectedEvents});
+		return false;
 		});
 
 		$('#c1').isotope( 'insert', $(newPosItems) );
 		$('#c2').isotope( 'insert', $(newNegItems) );
+
 		</script>
 	</body>
 </html>
