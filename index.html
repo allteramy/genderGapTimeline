@@ -13,6 +13,8 @@
 		<!-- jQuery for offline use -->
 		<!--<script type="text/javascript" src="jquery-1.7.1.min.js"></script>-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script type="text/javascript" src="bootstrap.js"></script>
 		<!-- Isotope -->
 		<!-- Isotope for offline use -->
 		<!--<script src="jquery.isotope.js" type="text/javascript"></script>-->
@@ -124,7 +126,7 @@
 			var sortName = $(this).attr('href').slice(1);
 			$c1.isotope({ sortBy : sortName });
 			$c2.isotope({ sortBy : sortName });
-			if ($(this).attr('class').search('active') === -1) {
+			if (!($(this).hasClass('active'))) {
 				$('#sort-by a').removeClass('active');
 				$(this).addClass('active');
 			}
@@ -137,48 +139,100 @@
 		var evnts = {};
 
 		for (i = 0; i < data.length; i++) {
-		pol = data[i].Polarity;
-		age = data[i].Age;
-		if (age == "") {
-			age = "unknown";
-		}
-		gender = data[i].Gender;
-		txt = data[i].TimelineText;
-		tag = data[i].Tag.replace(/,/g, '');
-		tmpTags = tag.split(' ');
-		for(j = 0; j < tmpTags.length; j++) {
-			if (!(tmpTags[j] in tags)) {
-				if(tmpTags[j] != "") {
-					tags[tmpTags[j]] = true;    
-				}
+			pol = data[i].Polarity;
+			age = data[i].Age;
+			if (age == "") {
+				age = "unknown";
 			}
-		};
-		evnt = data[i].Event.replace(/ /g, '_');
-		if (!(evnt in evnts)) {
-			evnts[evnt] = true;
-		}
-		media = data[i].Media;
-		rawYr = data[i].EventDate;
-		rawYr2 = rawYr.replace('1/1/', '');
-		yr = rawYr2.replace(' 0:00:00', '');
-		var newPosItems;
-		var newNegItems;
-		if (pol === "positive") {
-			newPosItems = newPosItems + '<div class="row-fluid"><div class="alert alert-success span12 timepoint positive ' + tag + ' ' + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '<\/span><\/h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '<\/span><\/h4><\/div><div class="row-fluid"><p class="span12 well well-small">' + txt + '<\/p><span class="label label-success">' + evnt.replace('_',' ') + '<\/span><\/div><\/div><\/div><\/div>';
-		}
-		else {
-			newNegItems = newNegItems + '<div class="row-fluid"><div class="alert alert-error span12 timepoint negative ' + tag + ' ' + evnt +'"><div class="row-fluid"><h4 class="span6"><span class="year">' + yr + '<\/span><\/h4><h4 class="span5 pull-right" style="text-align:right;">Age <span class="age">' + age + '<\/span><\/h4><\/div><div class="row-fluid"><p class="span12 well well-small">' + txt + '<\/p><span class="label label-important">' + evnt.replace('_',' ') + '<\/span><\/div><\/div><\/div><\/div>';
-		}
+			gender = data[i].Gender;
+			txt = data[i].TimelineText;
+			tag = data[i].Tag.replace(/,/g, '');
+			var tagList = "";
+			tmpTags = tag.split(' ');
+			for(j = 0; j < tmpTags.length; j++) {
+				tagList = tagList + '<span class="label">' + tmpTags[j].replace('_', ' ') + '</span>&nbsp;'
+				if (!(tmpTags[j] in tags)) {
+					if(tmpTags[j] != "") {
+						tags[tmpTags[j]] = true;    
+					}
+				}
+			};
+			evnt = data[i].Event.replace(/ /g, '_');
+			if (!(evnt in evnts)) {
+				evnts[evnt] = true;
+			}
+			media = data[i].Media;
+			rawYr = data[i].EventDate;
+			rawYr2 = rawYr.replace('1/1/', '');
+			yr = rawYr2.replace(' 0:00:00', '');
+			var yrStr = "";
+			var ageStr = "";
+			if (yr.length === 0) {
+				yrStr = "unknown";
+			}
+			else {
+				yrStr = yr;
+			}
+			if (age === "unknown") {
+				ageStr = age;
+			}
+			else {
+				ageStr = "Age " + age;
+			}
+			var newPosItems;
+			var newNegItems;
+			if (pol === "positive") {
+				newPosItems = newPosItems + '\
+				<div class="row-fluid">\
+					<div class="experience alert alert-success span12 timepoint positive ' + tag + ' ' + evnt +'">\
+						<div class="row-fluid">\
+							<div class="span2">\
+								<button id="pos_ex' + i + '" class="btn experience-text" data-content="' + txt + '" \
+								title="Positive Experience"pop>\
+								<i class="icon-align-justify"></i>\
+								</button>\
+							</div>\
+							<div class="span10 experience-main">\
+								Event: <span class="label label-info">' + evnt.replace('_',' ') + '</span><br />\
+								Tag(s): ' + tagList + '\
+							</div>\
+						</div>\
+						<span class="year">' + yrStr + '</span>\
+						<span class="ageStr">' + ageStr + '</span><span class="age" style="display:none;">' + age + '</span>\
+					</div>\
+				</div>';
+			}
+			else {
+				newNegItems = newNegItems + '\
+				<div class="row-fluid">\
+					<div class="experience alert alert-error span12 timepoint positive ' + tag + ' ' + evnt +'">\
+						<div class="row-fluid">\
+							<div class="span2">\
+								<button id="neg_ex' + i + '" class="btn experience-text" data-content="' + txt + '" \
+								title="Negative Experience">\
+								<i class="icon-align-justify"></i>\
+								</button>\
+							</div>\
+							<div class="span10 experience-main">\
+								Event: <span class="label label-info">' + evnt.replace('_',' ') + '</span><br />\
+								Tag(s): ' + tagList + '\
+							</div>\
+						</div>\
+						<span class="year">' + yrStr + '</span>\
+						<span class="ageStr">' + ageStr + '</span><span class="age" style="display:none;">' + age + '</span>\
+					</div>\
+				</div>';
+			}
 		};
 
 		// setting up filters
 		for (i in tags) {
-		$('#tag_filters').append("<button class='btn btn-small' href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "<\/button>");
+		$('#tag_filters').append("<button class='btn btn-small' href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
 		};
 
 		//setting up event filters
 		for (i in evnts) {
-		$('#event_filters').append("<button class='btn btn-small href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "<\/button>");
+		$('#event_filters').append("<button class='btn btn-small href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
 		};
 
 		// handle multiple tag selections
@@ -223,6 +277,8 @@
 
 		$('#c1').isotope( 'insert', $(newPosItems) );
 		$('#c2').isotope( 'insert', $(newNegItems) );
+
+		$('.experience-text').popover({html: false, trigger: "click", placement: "top"})
 
 		</script>
 	</body>
