@@ -45,7 +45,7 @@
 			<div class="row-fluid">
 				<div class="span12">
 					<div id="event_filters" class="btn-group pull-right">
-						<button class="btn btn-small active show-all" href="#" data-filter="*">Show all events</button>
+						<button class="btn btn-small active show-all" href="#" data-filter="">Show all events</button>
 					</div>
 				</div>
 			</div>
@@ -54,7 +54,7 @@
 					<div class="row-fluid">
 						<div class="span2">
 							<div id="tag_filters" class="btn-group btn-group-vertical pull-left">
-								<button class="btn active show-all" href="#" data-filter="*">Show all tags</button>
+								<button class="btn active show-all" href="#" data-filter="">Show all tags</button>
 							</div>
 						</div>
 						<div id="pos_ex" class="experiences column span5">
@@ -182,95 +182,43 @@
 		};
 
 		// handle multiple tag selections
-		var selectedTags = "";
+		var selectedTag = "";
 
 		$('#tag_filters button').click(function() {
-		var selector = $(this).attr('data-filter');
-		if ((selectedTags !== "") && (selector !== "*")) {
-			if (selectedTags.search(selector) === -1) {
-				selectedTags += ", " + selector;
+			selectedTag = $(this).attr('data-filter');
+			if ($(this).hasClass('active')) {
+				$(this).removeClass('active');
+				$('#tag_filters .show-all').addClass('active');
+				selectedTag = "";
 			}
-			else if (selectedTags.search(selector + ', ') !== -1) {
-				selectedTags = selectedTags.replace(selector + ', ', '');
+			else {			
+				$('#tag_filters button').removeClass('active');
+				$(this).addClass('active');
 			}
-			else if (selectedTags.search(', ' + selector) !== -1) {
-				selectedTags = selectedTags.replace(', ' + selector, '');
-			}
-			else if (selectedTags.search(selector) !== -1) {
-				selectedTags = selectedTags.replace(selector, '');
-			}
-		}
-		else if (selector === "*") {
-			selectedTags = "";
-			$('#tag_filters button').removeClass('active');
-			$('#tag_filters .show-all').addClass('active');
-		}
-		else {
-			selectedTags = selector;
-		}
-		// make 'Show all...' button active when all tags toggled off
-		if (selectedTags === "") {
-			$('#tag_filters button').removeClass('active');
-			$('#tag_filters .show-all').addClass('active');
-		}
-		else if (($(this).attr('class').search('active') !== -1) && (selector !== "*")) {
-			$(this).removeClass('active');
-		}
-		else {
-			$(this).addClass('active');
-			if (selectedTags !== "") {
-				$('#tag_filters .show-all').removeClass('active');
-			}
-		}
-		$c1.isotope({filter: selectedTags + selectedEvents});
-		$c2.isotope({filter: selectedTags + selectedEvents});
-		return false;
+			console.log(selectedTag + selectedEvent);
+			$c1.isotope({filter: selectedTag + selectedEvent});
+			$c2.isotope({filter: selectedTag + selectedEvent});
+			return false;
 		});
 
 		// handle multiple event selections
-		var selectedEvents = "";
+		var selectedEvent = "";
 
 		$('#event_filters button').click(function() {
-		var selector = $(this).attr('data-filter');
-		if ((selectedEvents != "") && (selector !== "*")) {
-			if (selectedEvents.search(selector) === -1) {
-				selectedEvents += ", " + selector;
+			selectedEvent = $(this).attr('data-filter');
+			if ($(this).hasClass('active')) {
+				$(this).removeClass('active');
+				$('#event_filters .show-all').addClass('active');
+				selectedEvent = "";
 			}
-			else if (selectedEvents.search(selector + ', ') !== -1) {
-				selectedEvents = selectedEvents.replace(selector + ', ', '');
+			else {			
+				$('#event_filters button').removeClass('active');
+				$(this).addClass('active');
 			}
-			else if (selectedEvents.search(', ' + selector) !== -1) {
-				selectedEvents = selectedEvents.replace(', ' + selector, '');
-			}
-			else if (selectedEvents.search(selector) !== -1) {
-				selectedEvents = selectedEvents.replace(selector, '');
-			}
-		}
-		else if (selector === "*") {
-			selectedEvents = "";
-			$('#event_filters button').removeClass('active');
-			$('#event_filters .show-all').addClass('active');
-		}
-		else {
-			selectedEvents = selector;
-		}
-		// make 'Show all...' button active when all events toggled off
-		if (selectedEvents === "") {
-			$('#event_filters button').removeClass('active');
-			$('#event_filters .show-all').addClass('active');
-		}
-		else if (($(this).attr('class').search('active') !== -1) && (selector !== "*")) {
-			$(this).removeClass('active');
-		}
-		else {
-			$(this).addClass('active');
-			if (selectedEvents !== "") {
-				$('#event_filters .show-all').removeClass('active');
-			}
-		}
-		$c1.isotope({filter: selectedTags + selectedEvents});
-		$c2.isotope({filter: selectedTags + selectedEvents});
-		return false;
+			console.log(selectedTag + selectedEvent);
+			$c1.isotope({filter: selectedTag + selectedEvent});
+			$c2.isotope({filter: selectedTag + selectedEvent});
+			return false;
 		});
 
 		$('#c1').isotope( 'insert', $(newPosItems) );
