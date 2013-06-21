@@ -24,19 +24,14 @@
 		<div class="container">
 			<div class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
-					<a class="brand" href="http://www.thehacktory.org/">The Hacktory</a>
+					<a class="brand" href="#">Hacking the Gender Gap: Timeline</a>
+					<ul class="nav pull-right">
+						<li><a href="http://www.thehacktory.org/">The Hacktory</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="container">
-			<div class="jumbotron hero-unit">
-				<h2>
-					Hacking the Gender Gap
-				</h2>
-				<h1>
-					Timeline
-				</h1>
-			</div>
 			<div class="row-fluid">
 				<div class="span12">
 					<div id="sort-by" class="btn-group pull-right">
@@ -55,22 +50,22 @@
 				<div class="span12">
 					<div class="row-fluid">
 						<div class="span2">
-							<div id="tag_filters" class="btn-group btn-group-vertical pull-left">
+							<div id="tag_filters" class="nav nav-tabs nav-stacked pull-left">
 								<button class="btn active show-all" href="#" data-filter="">Show all tags</button>
 							</div>
 						</div>
 						<div id="pos_ex" class="experiences column span5">
-							<h1 class="well well-small">
+							<h3 class="well well-small">
 								Positive Experiences
-							</h1>
+							</h3>
 							<div class="row-fluid">
 								<div id="c1" class="container isotope span12"></div>
 							</div>
 						</div>
 						<div id="neg_ex" class="experiences column span5">
-							<h1 class="well well-small">
+							<h3 class="well well-small">
 								Negative Experiences
-							</h1>
+							</h3>
 							<div class="row-fluid">
 								<div id="c2" class="container isotope span12"></div>
 							</div>
@@ -146,6 +141,10 @@
 			}
 			gender = data[i].Gender;
 			txt = data[i].TimelineText;
+			tagsWithCommas = data[i].Tag;
+			if (tagsWithCommas.length === 0) {
+				tagsWithCommas = "(none)";
+			}
 			tag = data[i].Tag.replace(/,/g, '');
 			var tagList = "";
 			tmpTags = tag.split(' ');
@@ -186,15 +185,12 @@
 				<div class="row-fluid">\
 					<div class="experience alert alert-success span12 timepoint positive ' + tag + ' ' + evnt +'">\
 						<div class="row-fluid">\
-							<div class="span2">\
-								<button id="pos_ex' + i + '" class="btn experience-text" data-content="' + txt + '" \
-								title="Positive Experience"pop>\
-								<i class="icon-align-justify"></i>\
-								</button>\
+							<div class="span1">\
+								<i class="tooltips icon-tags" data-toggle="tooltip" title="' + tagsWithCommas.replace('_', ' ') + '"></i><br/>\
+								<i class="tooltips icon-info-sign" data-toggle="tooltip" title="' + evnt.replace('_', ' ') + '"></i>\
 							</div>\
-							<div class="span10 experience-main">\
-								Event: <span class="label label-info">' + evnt.replace('_',' ') + '</span><br />\
-								Tag(s): ' + tagList + '\
+							<div class="span9 experience-main">\
+								<p>' + txt + '</p>\
 							</div>\
 						</div>\
 						<span class="year">' + yrStr + '</span>\
@@ -205,17 +201,14 @@
 			else {
 				newNegItems = newNegItems + '\
 				<div class="row-fluid">\
-					<div class="experience alert alert-error span12 timepoint positive ' + tag + ' ' + evnt +'">\
+					<div class="experience alert alert-error span12 timepoint negaitve ' + tag + ' ' + evnt +'">\
 						<div class="row-fluid">\
-							<div class="span2">\
-								<button id="neg_ex' + i + '" class="btn experience-text" data-content="' + txt + '" \
-								title="Negative Experience">\
-								<i class="icon-align-justify"></i>\
-								</button>\
+							<div class="span1">\
+								<i class="tooltips icon-tags" data-toggle="tooltip" title="' + tagsWithCommas.replace('_', ' ') + '"></i><br/>\
+								<i class="tooltips icon-info-sign" data-toggle="tooltip" title="' + evnt.replace('_', ' ') + '"></i>\
 							</div>\
-							<div class="span10 experience-main">\
-								Event: <span class="label label-info">' + evnt.replace('_',' ') + '</span><br />\
-								Tag(s): ' + tagList + '\
+							<div class="span9 experience-main">\
+								<p>' + txt + '</p>\
 							</div>\
 						</div>\
 						<span class="year">' + yrStr + '</span>\
@@ -278,7 +271,7 @@
 		$('#c1').isotope( 'insert', $(newPosItems) );
 		$('#c2').isotope( 'insert', $(newNegItems) );
 
-		$('.experience-text').popover({html: false, trigger: "click", placement: "top"})
+		$('.tooltips').tooltip({trigger: "hover"});
 
 		</script>
 	</body>
