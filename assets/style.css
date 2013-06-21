@@ -54,7 +54,7 @@
 
 /* Start: Jana's Additions */
 
-/* navbar logo left margin (JEB) */
+/* navbar logo left margin */
 .navbar .brand {
   margin-left: 10px;
 }
@@ -64,40 +64,49 @@ body {
   padding-top: 60px;
 }
 
+/* margins for experience 'cards' */
 .row-fluid {
-  margin: 10px 0px;
+  margin: 5px 0;
 }
 
+/* change color of header text at top of experiences column */
 #pos_ex h3 {
   color: #468847;
 }
 
+/* change color of header text at top of experiences column */
 #neg_ex h3 {
   color: #b94a48;
 }
 
 .experiences h3 {
+  /* center experiences column header text */
   text-align: center;
+  /* align top of experiences column with tag filters */
   margin-top: 0;
 }
 
+/* pad experience 'cards' to make more room for icons on the left */
 .experience {
   padding: 2px 2px 2px 8px;
 }
 
 .experience-main {
   font-size: 14px;
+  /* give experience text a little more padding on top */
+  padding-top: 5px;
 }
 
 .experience-tags {
   background-color: #F5F5F5;
 }
 
+/* corner chip for experience 'card' year */
 .experience .year {
   position: absolute;
   top: -1px;
   right: -1px;
-  padding: 3px 7px;
+  padding: 2px 6px;
   font-size: 12px;
   font-weight: bold;
   background-color: #F5F5F5;
@@ -108,11 +117,12 @@ body {
           border-radius: 4px 0 4px 0;
 }
 
+/* corner chip for experience 'card' age */
 .experience .ageStr {
   position: absolute;
   bottom: -1px;
   right: -1px;
-  padding: 3px 7px;
+  padding: 2px 6px;
   font-size: 12px;
   font-weight: bold;
   background-color: #F5F5F5;
@@ -130,20 +140,3 @@ body {
 }
 
 /* End: Jana's Additions */
-
-/* Echo out a label for the example */
-/*.experience:after {
-  content: "Test";
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  padding: 3px 7px;
-  font-size: 12px;
-  font-weight: bold;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  color: #9da0a4;
-  -webkit-border-radius: 4px 0 4px 0;
-     -moz-border-radius: 4px 0 4px 0;
-          border-radius: 4px 0 4px 0;
-}*/
