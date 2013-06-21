@@ -1,4 +1,5 @@
-data = [
+{
+	"Experiences": [
 	{
 		"EventDate": "1/1/1997 0:00:00",
 		"Age": "9",
@@ -132,7 +133,7 @@ data = [
 	{
 		"EventDate": "1/1/2008 0:00:00",
 		"Age": "31",
-		"TimelineText": "Brought \'The Internet: A Series of Tubes\' shirts (with fallopian tubes) to a hacker conference.  Didn't know how they would be received.  The next week I realized I'd accidentally launched a small business.",
+		"TimelineText": "Brought 'The Internet: A Series of Tubes' shirts (with fallopian tubes) to a hacker conference.  Didn't know how they would be received.  The next week I realized I'd accidentally launched a small business.",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559409794/",
 		"Tag": "conference",
 		"Polarity": "positive",
@@ -172,7 +173,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "33",
-		"TimelineText": "A workshop on free software run by gender activists with a very practical and \'newbie\' approach that meant my real link with FLOSS",
+		"TimelineText": "A workshop on free software run by gender activists with a very practical and 'newbie' approach that meant my real link with FLOSS",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559411728/",
 		"Tag": "community, FLOSS",
 		"Polarity": "positive",
@@ -432,7 +433,7 @@ data = [
 	{
 		"EventDate": "1/1/2010 0:00:00",
 		"Age": "31",
-		"TimelineText": "New CEO decides we need a \'greeter program\' (aka hot online chicks) to encourmore male users (=$) of our website",
+		"TimelineText": "New CEO decides we need a 'greeter program' (aka hot online chicks) to encourmore male users (=$) of our website",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559422824/",
 		"Tag": "sexism, workplace",
 		"Polarity": "negative",
@@ -462,7 +463,7 @@ data = [
 	{
 		"EventDate": "1/1/2007 0:00:00",
 		"Age": "22",
-		"TimelineText": "First day of work at a large company. On the shuttle, two men talk about a confusing UI for a tool written in the mid-1990s. One guy comments, \'Oh, a woman must have designed that.\' Could not find the words. I still see him & wish I could have said something.",
+		"TimelineText": "First day of work at a large company. On the shuttle, two men talk about a confusing UI for a tool written in the mid-1990s. One guy comments, 'Oh, a woman must have designed that.' Could not find the words. I still see him & wish I could have said something.",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559424356/",
 		"Tag": "stereotype, workplace",
 		"Polarity": "negative",
@@ -472,7 +473,7 @@ data = [
 	{
 		"EventDate": "1/1/2007 0:00:00",
 		"Age": "28",
-		"TimelineText": "Was most qualified for internal promotion, got told \'You don't know what you're doing.\' Hired a guy from outside (he killed the community within 6 months).",
+		"TimelineText": "Was most qualified for internal promotion, got told 'You don't know what you're doing.' Hired a guy from outside (he killed the community within 6 months).",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559424850/",
 		"Tag": "sexism, workplace",
 		"Polarity": "negative",
@@ -482,7 +483,7 @@ data = [
 	{
 		"EventDate": "1/1/2010 0:00:00",
 		"Age": "24",
-		"TimelineText": "Told that liberal arts majors can't \'hack\' code / \'do\' math",
+		"TimelineText": "Told that liberal arts majors can't 'hack' code / 'do' math",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559425412/",
 		"Tag": "stereotype",
 		"Polarity": "negative",
@@ -562,7 +563,7 @@ data = [
 	{
 		"EventDate": "1/1/2008 0:00:00",
 		"Age": "19",
-		"TimelineText": "Multimedia prof can't answer some of my tech questions and discourages me to go further. (\'this\' is good enough)",
+		"TimelineText": "Multimedia prof can't answer some of my tech questions and discourages me to go further. ('this' is good enough)",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559427992/",
 		"Tag": "",
 		"Polarity": "negative",
@@ -572,7 +573,7 @@ data = [
 	{
 		"EventDate": "1/1/2005 0:00:00",
 		"Age": "19",
-		"TimelineText": "Found out CS classes were \'hard\' and \'boring\' from friends so never took one",
+		"TimelineText": "Found out CS classes were 'hard' and 'boring' from friends so never took one",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559428320/",
 		"Tag": "stereotype",
 		"Polarity": "negative",
@@ -602,7 +603,7 @@ data = [
 	{
 		"EventDate": "1/1/2002 0:00:00",
 		"Age": "18",
-		"TimelineText": "Couldn't set up my new computer at college, figured I \'must not be a computer person\'",
+		"TimelineText": "Couldn't set up my new computer at college, figured I 'must not be a computer person'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559429722",
 		"Tag": "computer",
 		"Polarity": "negative",
@@ -632,7 +633,7 @@ data = [
 	{
 		"EventDate": "1/1/1995 0:00:00",
 		"Age": "16",
-		"TimelineText": "Crappy chemistry teacher turned me off science and said \'women are bad at science\' (She was a woman with a Chem PhD.)",
+		"TimelineText": "Crappy chemistry teacher turned me off science and said 'women are bad at science' (She was a woman with a Chem PhD.)",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559430768",
 		"Tag": "stereotype, teacher",
 		"Polarity": "negative",
@@ -652,7 +653,7 @@ data = [
 	{
 		"EventDate": "1/1/1992 0:00:00",
 		"Age": "6",
-		"TimelineText": "Told I was only good at math because comp sci father \'forced me\'",
+		"TimelineText": "Told I was only good at math because comp sci father 'forced me'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7559431616",
 		"Tag": "stereotype",
 		"Polarity": "negative",
@@ -722,7 +723,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "12",
-		"TimelineText": "Having my female math teacher say \'You're bored in my class - this is a TRS-80 III and a BASIC program.\' Thanks, Mrs. Nelson!",
+		"TimelineText": "Having my female math teacher say 'You're bored in my class - this is a TRS-80 III and a BASIC program.' Thanks, Mrs. Nelson!",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587641822",
 		"Tag": "programming, teacher",
 		"Polarity": "positive",
@@ -802,7 +803,7 @@ data = [
 	{
 		"EventDate": "1/1/1985 0:00:00",
 		"Age": "22",
-		"TimelineText": "At my first job, normal job running reports from Fed systems.  Tech bulletin tells about ARPAnet.  I tinker with it for helping my tech work and studies.  This is \'pre-Internet\'.  One day need tech support.  Help desk says there's an expert in my area who can help.  Then they give my name.  Nice for ego.",
+		"TimelineText": "At my first job, normal job running reports from Fed systems.  Tech bulletin tells about ARPAnet.  I tinker with it for helping my tech work and studies.  This is 'pre-Internet'.  One day need tech support.  Help desk says there's an expert in my area who can help.  Then they give my name.  Nice for ego.",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587644854",
 		"Tag": "internet, workplace",
 		"Polarity": "positive",
@@ -812,7 +813,7 @@ data = [
 	{
 		"EventDate": "1/1/2010 0:00:00",
 		"Age": "24",
-		"TimelineText": "Encouraged to explore ins & outs of GNU/Linux CLI at work by friend / CSA / ex-member of my job, and provided tips and starting points by same member, despite  a distinctly \'hands-off\' prevailing culture",
+		"TimelineText": "Encouraged to explore ins & outs of GNU/Linux CLI at work by friend / CSA / ex-member of my job, and provided tips and starting points by same member, despite  a distinctly 'hands-off' prevailing culture",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587645196",
 		"Tag": "FLOSS, workplace, mentor",
 		"Polarity": "positive",
@@ -962,7 +963,7 @@ data = [
 	{
 		"EventDate": "1/1/2012 0:00:00",
 		"Age": "24",
-		"TimelineText": "I am an engineer for the company for which I work.  I constantly get asked by customers to speak to an engineer or \'someone who can actually help.\'",
+		"TimelineText": "I am an engineer for the company for which I work.  I constantly get asked by customers to speak to an engineer or 'someone who can actually help.'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587653766",
 		"Tag": "stereotype, workplace",
 		"Polarity": "negative",
@@ -982,7 +983,7 @@ data = [
 	{
 		"EventDate": "1/1/2012 0:00:00",
 		"Age": "37",
-		"TimelineText": "Was asked what this activity was about, told that THIS is why the gender gap exists.  \'Men would never do this.  Women should just get in there and do it.\'  He said this to a 15-year veteran systems administrator.  I guess analysis is not part of his world view.",
+		"TimelineText": "Was asked what this activity was about, told that THIS is why the gender gap exists.  'Men would never do this.  Women should just get in there and do it.'  He said this to a 15-year veteran systems administrator.  I guess analysis is not part of his world view.",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587654644",
 		"Tag": "sexism",
 		"Polarity": "negative",
@@ -1002,7 +1003,7 @@ data = [
 	{
 		"EventDate": "1/1/1999 0:00:00",
 		"Age": "18",
-		"TimelineText": "Guidance counselor discouraged Math/Sci courseload as \'too much work\' and not \'well rounded\'",
+		"TimelineText": "Guidance counselor discouraged Math/Sci courseload as 'too much work' and not 'well rounded'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587655518",
 		"Tag": "guidance",
 		"Polarity": "negative",
@@ -1012,7 +1013,7 @@ data = [
 	{
 		"EventDate": "1/1/1989 0:00:00",
 		"Age": "9",
-		"TimelineText": "\'I'm having a problem with my computer...could you fix it for me?\'",
+		"TimelineText": "'I'm having a problem with my computer...could you fix it for me?'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587655858",
 		"Tag": "",
 		"Polarity": "negative",
@@ -1032,7 +1033,7 @@ data = [
 	{
 		"EventDate": "1/1/2010 0:00:00",
 		"Age": "19",
-		"TimelineText": "Very first HOPE conference, I was asked why I was here.  \'I build things.\' Met with a laugh, \'What do you build, clothes??\'",
+		"TimelineText": "Very first HOPE conference, I was asked why I was here.  'I build things.' Met with a laugh, 'What do you build, clothes??'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587656620",
 		"Tag": "stereotype, conference",
 		"Polarity": "negative",
@@ -1072,7 +1073,7 @@ data = [
 	{
 		"EventDate": "1/1/1991 0:00:00",
 		"Age": "17",
-		"TimelineText": "HS physics teacher was totally condescending and said, \'I'm surprised you girls could make a mousetrap car that went the minimum distance.\'  Boys got told they did a good job.",
+		"TimelineText": "HS physics teacher was totally condescending and said, 'I'm surprised you girls could make a mousetrap car that went the minimum distance.'  Boys got told they did a good job.",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587658220",
 		"Tag": "teacher, sexism",
 		"Polarity": "negative",
@@ -1122,7 +1123,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "10",
-		"TimelineText": "Being told by math teacher that \'women were bad at math, so there's no point to try that hard.\'",
+		"TimelineText": "Being told by math teacher that 'women were bad at math, so there's no point to try that hard.'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7587660436",
 		"Tag": "teacher, sexism",
 		"Polarity": "negative",
@@ -1302,7 +1303,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "32",
-		"TimelineText": "When I worked in CS department, I told people that I wanted to go into Education for a PhD - one CS faculty told me: \'That's a waste of time, do you want to wait tables?\' He had two little daughters him. Sad - how sad.",
+		"TimelineText": "When I worked in CS department, I told people that I wanted to go into Education for a PhD - one CS faculty told me: 'That's a waste of time, do you want to wait tables?' He had two little daughters him. Sad - how sad.",
 		"Media": "http://www.flickr.com/photos/thehacktory/6982169344/",
 		"Tag": "guidance",
 		"Polarity": "negative",
@@ -1412,7 +1413,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "30",
-		"TimelineText": "\'I don't think programming is for you. Maybe hardware.\'",
+		"TimelineText": "'I don't think programming is for you. Maybe hardware.'",
 		"Media": "http://www.flickr.com/photos/thehacktory/6982185912/",
 		"Tag": "guidance",
 		"Polarity": "negative",
@@ -1572,7 +1573,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "21",
-		"TimelineText": "Constantly hearing \'You don't look like a programmer\'",
+		"TimelineText": "Constantly hearing 'You don't look like a programmer'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7128295559/",
 		"Tag": "stereotype",
 		"Polarity": "negative",
@@ -1732,7 +1733,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "18",
-		"TimelineText": "Male classmates: \'You only got internship X / position Y b/c you're a girl\' (common statement)",
+		"TimelineText": "Male classmates: 'You only got internship X / position Y b/c you're a girl' (common statement)",
 		"Media": "http://www.flickr.com/photos/thehacktory/6982233954/",
 		"Tag": "sexism",
 		"Polarity": "negative",
@@ -1742,7 +1743,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "19",
-		"TimelineText": "Not job but in school was only woman in CS program. Tutor (male) said to me, \'I don't get why you don't understand. It's so easy.\'",
+		"TimelineText": "Not job but in school was only woman in CS program. Tutor (male) said to me, 'I don't get why you don't understand. It's so easy.'",
 		"Media": "http://www.flickr.com/photos/thehacktory/7128321113/",
 		"Tag": "college, programming",
 		"Polarity": "negative",
@@ -1782,7 +1783,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "16",
-		"TimelineText": "First \'real\' software internship (@ video game co.)",
+		"TimelineText": "First 'real' software internship (@ video game co.)",
 		"Media": "http://www.flickr.com/photos/thehacktory/6982240142/",
 		"Tag": "internship",
 		"Polarity": "positive",
@@ -1792,7 +1793,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "13",
-		"TimelineText": "My first \'hack\'. I was in jr. high when my dad got us our first computer. We also got a few disks of games (shareware) written in BASIC. One game I could never win so I went through the code and found a bug that prevented us from moving forward. After fixing it, I beat the game and wanted to do this for the rest of my life.",
+		"TimelineText": "My first 'hack'. I was in jr. high when my dad got us our first computer. We also got a few disks of games (shareware) written in BASIC. One game I could never win so I went through the code and found a bug that prevented us from moving forward. After fixing it, I beat the game and wanted to do this for the rest of my life.",
 		"Media": "http://www.flickr.com/photos/thehacktory/7128328259/",
 		"Tag": "programming",
 		"Polarity": "positive",
@@ -1812,7 +1813,7 @@ data = [
 	{
 		"EventDate": "",
 		"Age": "12",
-		"TimelineText": "Hostile, evil trolls + unwanted \'hey wanna cyber\' requests @ 12",
+		"TimelineText": "Hostile, evil trolls + unwanted 'hey wanna cyber' requests @ 12",
 		"Media": "http://www.flickr.com/photos/thehacktory/6982246070/",
 		"Tag": "internet",
 		"Polarity": "negative",
@@ -1922,7 +1923,7 @@ data = [
 	{
 		"EventDate": "1/1/2011 0:00:00",
 		"Age": "25",
-		"TimelineText": "The first time I understood the technobabble on \'The Big Bang Theory\'",
+		"TimelineText": "The first time I understood the technobabble on 'The Big Bang Theory'",
 		"Media": "https://secure.flickr.com/photos/thehacktory/8485328823/in/set-72157632798671152/",
 		"Tag": "",
 		"Polarity": "positive",
@@ -1948,5 +1949,5 @@ data = [
 		"Polarity": "positive",
 		"Event": "GGD 2013",
 		"Gender": ""
-	}
-];
+	}]
+}
