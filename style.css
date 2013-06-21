@@ -54,27 +54,96 @@
 
 /* Start: Jana's Additions */
 
-/* Navbar logo left margin (JEB) */
+/* navbar logo left margin (JEB) */
 .navbar .brand {
   margin-left: 10px;
 }
 
-.jumbotron {
-  text-align: center;
+/* prevent navbar from hiding top of page */
+body {
+  padding-top: 60px;
 }
 
 .row-fluid {
   margin: 10px 0px;
 }
 
-#pos_ex h1 {
+#pos_ex h3 {
   color: #468847;
 }
 
-#neg_ex h1 {
+#neg_ex h3 {
   color: #b94a48;
 }
 
-.experiences h1 {
+.experiences h3 {
   text-align: center;
+  margin-top: 0;
 }
+
+.experience {
+  padding: 2px 2px 2px 8px;
+}
+
+.experience-main {
+  font-size: 14px;
+}
+
+.experience-tags {
+  background-color: #F5F5F5;
+}
+
+.experience .year {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #F5F5F5;
+  border: 1px solid #DDD;
+  color: #000000;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}
+
+.experience .ageStr {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #F5F5F5;
+  border: 1px solid #DDD;
+  color: #000000;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}
+
+/* necessary to see tooltips */
+.isotope {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+/* End: Jana's Additions */
+
+/* Echo out a label for the example */
+/*.experience:after {
+  content: "Test";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}*/
