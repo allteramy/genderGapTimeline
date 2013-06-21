@@ -14,6 +14,7 @@
 		<!--<script type="text/javascript" src="jquery-1.7.1.min.js"></script>-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<!-- Bootstrap JS -->
+		<!-- NB: has to be loaded *after* jQuery -->
 		<script type="text/javascript" src="assets/bootstrap.min.js"></script>
 		<!-- Isotope -->
 		<!-- Isotope for offline use -->
@@ -32,13 +33,16 @@
 			</div>
 		</div>
 		<div class="container">
+			<!-- sorting button -->
 			<div class="row-fluid">
 				<div class="span12">
 					<div id="sort-by" class="btn-group pull-right">
-						<a href="#year" class="btn">Order by Year</a> <a href="#age" class="btn">Order by Age</a>
+						<a href="#year" class="btn">Order by Year</a>
+						<a href="#age" class="btn">Order by Age</a>
 					</div>
 				</div>
 			</div>
+			<!-- event filters -->
 			<div class="row-fluid">
 				<div class="span12">
 					<div id="event_filters" class="btn-group pull-right">
@@ -48,12 +52,15 @@
 			</div>
 			<div class="row-fluid">
 				<div class="span12">
+					<!-- main content -->
 					<div class="row-fluid">
+						<!-- tag filters -->
 						<div class="span2">
 							<div id="tag_filters" class="nav nav-tabs nav-stacked pull-left">
 								<button class="btn active show-all" href="#" data-filter="">Show all tags</button>
 							</div>
 						</div>
+						<!-- positive experiences column -->
 						<div id="pos_ex" class="experiences column span5">
 							<h3 class="well well-small">
 								Positive Experiences
@@ -62,6 +69,7 @@
 								<div id="c1" class="container isotope span12"></div>
 							</div>
 						</div>
+						<!-- negative experiences column -->
 						<div id="neg_ex" class="experiences column span5">
 							<h3 class="well well-small">
 								Negative Experiences
@@ -74,6 +82,7 @@
 				</div>
 			</div>
 		</div><script type="text/javascript">
+		// variables for Isotope containers for positive and negative experiences
 		var $c1 = $('#c1');
 		var $c2 = $('#c2');
 
@@ -94,24 +103,24 @@
 		// set up sorting for Pos Exp column...
 		$c1.isotope({
 			getSortData : {
-			year : function ( $elem ) {
-			  return parseInt($elem.find('.year').text());
-			},
-			age : function ( $elem ) {
-			  return parseInt($elem.find('.age').text());
-			}
+				year : function ( $elem ) {
+				  return parseInt($elem.find('.year').text());
+				},
+				age : function ( $elem ) {
+				  return parseInt($elem.find('.age').text());
+				}
 			}
 		});
 
 		// set up sorting for Neg Exp column...
 		$c2.isotope({
 			getSortData : {
-			year : function ( $elem ) {
-			  return parseInt($elem.find('.year').text());
-			},
-			age : function ( $elem ) {
-			  return parseInt($elem.find('.age').text());
-			}
+				year : function ( $elem ) {
+				  return parseInt($elem.find('.year').text());
+				},
+				age : function ( $elem ) {
+				  return parseInt($elem.find('.age').text());
+				}
 			}
 		});
 
@@ -121,6 +130,8 @@
 			var sortName = $(this).attr('href').slice(1);
 			$c1.isotope({ sortBy : sortName });
 			$c2.isotope({ sortBy : sortName });
+			// manually control active state of button because there seems to be a conflict between bootstrap.js
+			// and the version of Modernizr loaded by Isotope
 			if (!($(this).hasClass('active'))) {
 				$('#sort-by a').removeClass('active');
 				$(this).addClass('active');
@@ -133,92 +144,110 @@
 
 		var evnts = {};
 
-		for (i = 0; i < data.length; i++) {
-			pol = data[i].Polarity;
-			age = data[i].Age;
-			if (age == "") {
-				age = "unknown";
-			}
-			gender = data[i].Gender;
-			txt = data[i].TimelineText;
-			tagsWithCommas = data[i].Tag;
-			if (tagsWithCommas.length === 0) {
-				tagsWithCommas = "(none)";
-			}
-			tag = data[i].Tag.replace(/,/g, '');
-			var tagList = "";
-			tmpTags = tag.split(' ');
-			for(j = 0; j < tmpTags.length; j++) {
-				tagList = tagList + '<span class="label">' + tmpTags[j].replace('_', ' ') + '</span>&nbsp;'
-				if (!(tmpTags[j] in tags)) {
-					if(tmpTags[j] != "") {
-						tags[tmpTags[j]] = true;    
-					}
-				}
-			};
-			evnt = data[i].Event.replace(/ /g, '_');
-			if (!(evnt in evnts)) {
-				evnts[evnt] = true;
-			}
-			media = data[i].Media;
-			rawYr = data[i].EventDate;
-			rawYr2 = rawYr.replace('1/1/', '');
-			yr = rawYr2.replace(' 0:00:00', '');
-			var yrStr = "";
-			var ageStr = "";
-			if (yr.length === 0) {
-				yrStr = "unknown";
-			}
-			else {
-				yrStr = yr;
-			}
-			if (age === "unknown") {
-				ageStr = age;
-			}
-			else {
-				ageStr = "Age " + age;
-			}
-			var newPosItems;
-			var newNegItems;
-			if (pol === "positive") {
-				newPosItems = newPosItems + '\
-				<div class="row-fluid">\
-					<div class="experience alert alert-success span12 timepoint positive ' + tag + ' ' + evnt +'">\
-						<div class="row-fluid">\
-							<div class="span1">\
-								<i class="tooltips icon-tags" data-toggle="tooltip" title="' + tagsWithCommas.replace('_', ' ') + '"></i><br/>\
-								<i class="tooltips icon-info-sign" data-toggle="tooltip" title="' + evnt.replace('_', ' ') + '"></i>\
-							</div>\
-							<div class="span9 experience-main">\
-								<p>' + txt + '</p>\
-							</div>\
-						</div>\
-						<span class="year">' + yrStr + '</span>\
-						<span class="ageStr">' + ageStr + '</span><span class="age" style="display:none;">' + age + '</span>\
-					</div>\
-				</div>';
-			}
-			else {
-				newNegItems = newNegItems + '\
-				<div class="row-fluid">\
-					<div class="experience alert alert-error span12 timepoint negaitve ' + tag + ' ' + evnt +'">\
-						<div class="row-fluid">\
-							<div class="span1">\
-								<i class="tooltips icon-tags" data-toggle="tooltip" title="' + tagsWithCommas.replace('_', ' ') + '"></i><br/>\
-								<i class="tooltips icon-info-sign" data-toggle="tooltip" title="' + evnt.replace('_', ' ') + '"></i>\
-							</div>\
-							<div class="span9 experience-main">\
-								<p>' + txt + '</p>\
-							</div>\
-						</div>\
-						<span class="year">' + yrStr + '</span>\
-						<span class="ageStr">' + ageStr + '</span><span class="age" style="display:none;">' + age + '</span>\
-					</div>\
-				</div>';
-			}
-		};
+		var selectedTag = "";
 
-		// setting up filters
+		var selectedEvent = "";
+
+		var newPosItems;
+	
+		var newNegItems;
+
+		// load experiences .json file
+		// $.getJSON() is async, so data munging must take place within callback
+		$.getJSON('data.json', function(result, status) {
+			data = result["Experiences"];
+			$.each(data, function(i) {
+				pol = data[i].Polarity;
+				age = data[i].Age;
+				if (age.length === 0) {
+					age = "unknown";
+				}
+				gender = data[i].Gender;
+				txt = data[i].TimelineText;
+				// save tags with commas for use in tooltip; replace with '(none)' if none
+				tagsWithCommas = data[i].Tag;
+				if (tagsWithCommas.length === 0) {
+					tagsWithCommas = "(none)";
+				}
+				// remove commas from tag list
+				tag = data[i].Tag.replace(/,/g, '');
+				tmpTags = tag.split(' ');
+				// cycle through tags to add any not encountered yet to tags Object (= JavaScript approximation of Set datatype)
+				// tags Object is used for generating tag filter buttons dynamically
+				for(j = 0; j < tmpTags.length; j++) {
+					if (!(tmpTags[j] in tags)) {
+						if(tmpTags[j] != "") {
+							tags[tmpTags[j]] = true;    
+						}
+					}
+				};
+				// cycle through tags to add any not encountered yet to evnts Object
+				// evnts Object is used for generating event filter buttons dynamically
+				evnt = data[i].Event.replace(/ /g, '_');
+				if (!(evnt in evnts)) {
+					evnts[evnt] = true;
+				}
+				media = data[i].Media;
+				// extract year from timestamps
+				rawYr = data[i].EventDate;
+				rawYr2 = rawYr.replace('1/1/', '');
+				yr = rawYr2.replace(' 0:00:00', '');
+				var yrStr = "";
+				var ageStr = "";
+				// replace empty years and ages with 'unknown' for experience 'card' chips in the corners
+				if (yr.length === 0) {
+					yrStr = "unknown";
+				}
+				else {
+					yrStr = yr;
+				}
+				if (age === "unknown") {
+					ageStr = age;
+				}
+				else {
+					ageStr = "Age " + age;
+				}
+				if (pol === "positive") {
+					// create a 'card' for a positive experience
+					newPosItems = newPosItems + '\
+					<div class="row-fluid">\
+						<div class="experience alert alert-success span12 timepoint positive ' + tag + ' ' + evnt +'">\
+							<div class="row-fluid">\
+								<div class="span1">\
+									<i class="tooltips icon-tags" data-toggle="tooltip" title="' + tagsWithCommas.replace('_', ' ') + '"></i><br/>\
+									<i class="tooltips icon-info-sign" data-toggle="tooltip" title="' + evnt.replace('_', ' ') + '"></i>\
+								</div>\
+								<div class="span9 experience-main">\
+									<p>' + txt + '</p>\
+								</div>\
+							</div>\
+							<span class="year">' + yrStr + '</span>\
+							<span class="ageStr">' + ageStr + '</span><span class="age" style="display:none;">' + age + '</span>\
+						</div>\
+					</div>';
+				}
+				else {
+					// create a 'card' for a negative experience
+					newNegItems = newNegItems + '\
+					<div class="row-fluid">\
+						<div class="experience alert alert-error span12 timepoint negaitve ' + tag + ' ' + evnt +'">\
+							<div class="row-fluid">\
+								<div class="span1">\
+									<i class="tooltips icon-tags" data-toggle="tooltip" title="' + tagsWithCommas.replace('_', ' ') + '"></i><br/>\
+									<i class="tooltips icon-info-sign" data-toggle="tooltip" title="' + evnt.replace('_', ' ') + '"></i>\
+								</div>\
+								<div class="span9 experience-main">\
+									<p>' + txt + '</p>\
+								</div>\
+							</div>\
+							<span class="year">' + yrStr + '</span>\
+							<span class="ageStr">' + ageStr + '</span><span class="age" style="display:none;">' + age + '</span>\
+						</div>\
+					</div>';
+				}
+			});
+
+		// setting up tag filters
 		for (i in tags) {
 		$('#tag_filters').append("<button class='btn btn-small' href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
 		};
@@ -228,11 +257,10 @@
 		$('#event_filters').append("<button class='btn btn-small href='#' data-filter='." + i + "'>" + i.replace('_', ' ') + "</button>");
 		};
 
-		// handle multiple tag selections
-		var selectedTag = "";
-
+		// handle tag selections, with clicking an active tag serving to toggle back to all tags
 		$('#tag_filters button').click(function() {
 			selectedTag = $(this).attr('data-filter');
+			// toggle back to all tags shown
 			if ($(this).hasClass('active')) {
 				$(this).removeClass('active');
 				$('#tag_filters .show-all').addClass('active');
@@ -242,17 +270,15 @@
 				$('#tag_filters button').removeClass('active');
 				$(this).addClass('active');
 			}
-			console.log(selectedTag + selectedEvent);
 			$c1.isotope({filter: selectedTag + selectedEvent});
 			$c2.isotope({filter: selectedTag + selectedEvent});
 			return false;
 		});
 
-		// handle multiple event selections
-		var selectedEvent = "";
-
+		// handle event selections, with clicking an active tag serving to toggle back to all tags
 		$('#event_filters button').click(function() {
 			selectedEvent = $(this).attr('data-filter');
+			// toggle back to all events shown
 			if ($(this).hasClass('active')) {
 				$(this).removeClass('active');
 				$('#event_filters .show-all').addClass('active');
@@ -262,16 +288,18 @@
 				$('#event_filters button').removeClass('active');
 				$(this).addClass('active');
 			}
-			console.log(selectedTag + selectedEvent);
 			$c1.isotope({filter: selectedTag + selectedEvent});
 			$c2.isotope({filter: selectedTag + selectedEvent});
 			return false;
 		});
 
+		// add experience 'cards' to Isotope container
 		$('#c1').isotope( 'insert', $(newPosItems) );
 		$('#c2').isotope( 'insert', $(newNegItems) );
 
+		// add tooltips for tags and event
 		$('.tooltips').tooltip({trigger: "hover"});
+		});
 
 		</script>
 	</body>
