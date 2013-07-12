@@ -60,9 +60,10 @@
 }
 
 /* prevent navbar from hiding top of page */
-body {
+/* commented out for use in Hacktory website iframe */
+/*body {
   padding-top: 60px;
-}
+}*/
 
 /* margins for experience 'cards' */
 .row-fluid {
